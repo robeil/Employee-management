@@ -15,13 +15,13 @@ public class EmployeeController {
     @Autowired
     private EmployeeService employeeService;
 
-    @PostMapping
+    @PostMapping("/add")
     public ResponseEntity<?> addEmployee(@RequestBody Employee employee) {
         employeeService.addEmployee(employee);
         return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }
 
-    @GetMapping
+    @GetMapping("/all")
     public ResponseEntity<?> allEmployees() {
         var allEmployees = employeeService.getAllEmployees();
         return ResponseEntity.ok(allEmployees);
